@@ -3,14 +3,15 @@
 // import ManHinh3 from "./manhinh/manHinh3";
 
 // import { View, Text } from "react-native";
-import Screen1 from "./week2/screen1";
+// import Screen1 from "./week2/screen1";
+import Screen from "./week2/screen";
 
 export default function App() {
   return (
     // <ManHinh1/>
     // <ManHinh2/>
     // <ManHinh3/>
-    // <Screen />
-    <Screen1 />
+    <Screen />
+    // <Screen1 />
   );
 }
