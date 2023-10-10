@@ -1,14 +1,20 @@
 import { View, Text } from "react-native";
-import { Image, SafeAreaView } from "react-native-web";
+import { Image, SafeAreaView, TouchableOpacity } from "react-native-web";
 import Style from "./style";
+import { useEffect, useState } from "react";
 
-const Screen01 = () => {
+const Screen01 = ({ route, navigation }) => {
+  const [image, setImage] = useState();
+
+  useEffect(() => {
+    setImage(route.params);
+  }, [route.params]);
   return (
     <SafeAreaView>
       <View style={Style.container}>
         <Image
           style={Style.logoSanPham}
-          source={require("../img/phonered.png")}
+          source={route.params || require("../img/vs_red.png")}
         />
       </View>
       <View>
@@ -36,14 +42,22 @@ const Screen01 = () => {
         <Image style={Style.group} source={require("../img/Group 1.png")} />
       </View>
 
-      <View style={Style.border}>
-        <Text style={Style.text07}>4 MÀU-CHỌN MÀU</Text>
-        <Image style={Style.vector} source={require("../img/Vector.png")} />
-      </View>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("Screen02");
+        }}
+      >
+        <View style={Style.border}>
+          <Text style={Style.text07}>4 MÀU-CHỌN MÀU</Text>
+          <Image style={Style.vector} source={require("../img/Vector.png")} />
+        </View>
+      </TouchableOpacity>
 
-      <View style={Style.button1}>
-        <Text style={Style.text08}>CHỌN MUA</Text>
-      </View>
+      <TouchableOpacity>
+        <View style={Style.button1}>
+          <Text style={Style.text08}>CHỌN MUA</Text>
+        </View>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
